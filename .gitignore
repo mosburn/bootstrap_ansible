@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+# Ansible ignores
+*.retry
+elliotweiser.*
+geerlingguy.*

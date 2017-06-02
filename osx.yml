@@ -1,0 +1,65 @@
+---
+- hosts: all
+  #ignore_errors: yes
+
+  roles:
+    - { role: mosburn.osx, when: "ansible_os_family == 'Darwin'" }
+    - { role: geerlingguy.homebrew, when: "ansible_os_family == 'Darwin'" }
+  vars:
+    homebrew_installed_packages:
+      - autoconf
+      - automake
+      - babl
+      - byobu
+      - coreutils
+      - git
+      - gnupg
+      - gnutls
+      - ispell
+      - jpeg
+      - jq
+      - json-c
+      - keychain
+      - lynx
+      - mtr
+      - nmap
+      - openssl
+      - packer
+      - pastebinit
+      - pianobar
+      - pixman
+      - pkg-config
+      - popt
+      - pwgen
+      - pv
+      - python3
+      - readline
+      - shellcheck
+      - sl
+      - sqlite
+      - ssh-copy-id
+      - task
+      - tcptraceroute
+      - terraform
+      - tmux
+      - tty-clock
+      - utf8proc
+      - watch
+      - webp
+      - wget
+    homebrew_cask_apps:
+      - alfred
+      - atom
+      - emacs
+      - font-roboto-mono-for-powerline
+      - iterm2
+      - owasp-zap
+      - password-gorilla
+      - pycharm-ce
+
+    homebrew_taps:
+      - homebrew/core
+      - caskroom/cask
+      - caskroom/fonts
+      - homebrew/science
+      - homebrew/completions

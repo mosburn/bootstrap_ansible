@@ -1,0 +1,18 @@
+---
+# tasks file for mosburn.osx
+
+- name: Ensure /usr/local/share is owned properly for brew.sh
+  file:
+    path=/usr/local/share
+    owner={{ ansible_user }}
+    recurse=yes
+  become: yes
+- name: chack for locate.database
+  stat:
+    path: /var/db/locate.database
+  register: locate
+
+- name: enable locate
+  command: launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+  when: locate.stat.islnk is not defined
+  become: yes
